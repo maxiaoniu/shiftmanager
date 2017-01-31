@@ -25,6 +25,6 @@ FROM pg_catalog.pg_class c
      LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
      JOIN pg_catalog.pg_user u ON u.usesysid = c.relowner
 WHERE c.relkind IN ('r', 'v', 'm', 'S', 'f')
-  AND n.nspname !~ '^pg_' AND pg_catalog.pg_table_is_visible(c.oid)
+  AND n.nspname !~ '^pg_'
 ORDER BY c.relkind, n.oid, n.nspname;
 """
